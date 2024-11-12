@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5gkxlnybim3j"]
+
+[ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_b4me2"]
+[ext_resource type="PackedScene" uid="uid://yswg77qaubwo" path="res://scenes/enemy.tscn" id="2_d6lx3"]
+[ext_resource type="PackedScene" uid="uid://b0vlgusoy4nk4" path="res://scenes/card_ui/card_ui.tscn" id="2_tcbiy"]
+[ext_resource type="Resource" uid="uid://c2yfxlwf723ux" path="res://enemies/crab/test_enemy.tres" id="3_d4v6j"]
+[ext_resource type="PackedScene" uid="uid://dcexkylwsfrw0" path="res://scenes/player.tscn" id="3_ike62"]
+[ext_resource type="PackedScene" uid="uid://uj7r2wn3abm4" path="res://scenes/card_target_selector/card_target_selector.tscn" id="3_ro8jj"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="4_plmq2"]
+[ext_resource type="Resource" uid="uid://cu6qmhvi8oun6" path="res://characters/warrior/warrior.tres" id="4_xaus0"]
+[ext_resource type="Resource" uid="uid://dxfxyyr6apkd0" path="res://characters/warrior/cards/warrior_axe_attack.tres" id="6_ev15i"]
+[ext_resource type="Resource" uid="uid://ihjgmfcwtdfa" path="res://characters/warrior/cards/warrior_block.tres" id="7_0kg6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv1gi"]
+size = Vector2(256, 100)
+
+[node name="Battle" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+texture = ExtResource("1_b4me2")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(128, 50)
+shape = SubResource("RectangleShape2D_dv1gi")
+debug_color = Color(0, 0.595, 0.7, 0.156863)
+
+[node name="Enemy" parent="." instance=ExtResource("2_d6lx3")]
+position = Vector2(200, 65)
+stats = ExtResource("3_d4v6j")
+
+[node name="Player" parent="." instance=ExtResource("3_ike62")]
+position = Vector2(60, 65)
+stats = ExtResource("4_xaus0")
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("3_ro8jj")]
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("4_plmq2")
+
+[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_tcbiy")]
+layout_mode = 2
+card = ExtResource("6_ev15i")
+
+[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("2_tcbiy")]
+layout_mode = 2
+card = ExtResource("6_ev15i")
+
+[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_tcbiy")]
+layout_mode = 2
+card = ExtResource("7_0kg6t")
