@@ -8,7 +8,7 @@ extends Node2D
 
 
 func set_character_stats(value: CharacterStats) -> void:
-	stats = value.create_instance()
+	stats = value
 
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
@@ -37,4 +37,5 @@ func take_damage(damage: int) -> void:
 	stats.take_damage(damage)
 
 	if stats.health <= 0:
+		Events.player_died.emit()
 		queue_free()

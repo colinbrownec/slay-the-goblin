@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dirrl6yrhfc3a" path="res://main_theme.tres" id="1_kkl8l"]
 [ext_resource type="Script" path="res://scenes/ui/stats_ui.gd" id="2_0tnhr"]
 [ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="2_7fqwu"]
-[ext_resource type="Texture2D" uid="uid://d0edy7thj8ce6" path="res://art/heart.png" id="3_ivepg"]
+[ext_resource type="Texture2D" uid="uid://bp24lmetox17j" path="res://art/heart_outline.png" id="4_stlic"]
 
 [node name="StatsUI" type="HBoxContainer"]
 anchors_preset = 5
@@ -37,7 +37,7 @@ theme_override_constants/separation = 2
 
 [node name="HealthImage" type="TextureRect" parent="Health"]
 layout_mode = 2
-texture = ExtResource("3_ivepg")
+texture = ExtResource("4_stlic")
 stretch_mode = 3
 
 [node name="HealthLabel" type="Label" parent="Health"]
