@@ -20,6 +20,7 @@ shape = SubResource("RectangleShape2D_565fr")
 [node name="StatsUI" parent="." instance=ExtResource("3_ljmql")]
 offset_top = 7.0
 offset_bottom = 23.0
+theme = null
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
