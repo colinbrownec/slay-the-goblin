@@ -7,7 +7,7 @@ const ACTION_DELAY := 0.6
 var already_used := false
 
 
-func is_performable() -> bool:
+func can_perform_action() -> bool:
 	if not enemy or already_used:
 		return false
 

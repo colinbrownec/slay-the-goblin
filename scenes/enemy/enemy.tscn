@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://yswg77qaubwo"]
+[gd_scene load_steps=7 format=3 uid="uid://yswg77qaubwo"]
 
 [ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="1_f1a3m"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_mnmfb"]
 [ext_resource type="PackedScene" uid="uid://cg0etlyn5qq7x" path="res://scenes/ui/stats_ui.tscn" id="3_ljmql"]
 [ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://art/arrow.png" id="4_ud4s8"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="5_mao5o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_565fr"]
 
@@ -27,6 +28,31 @@ visible = false
 position = Vector2(0, -16)
 rotation = 3.14159
 texture = ExtResource("4_ud4s8")
+
+[node name="IntentUI" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="IntentUI"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+texture = ExtResource("5_mao5o")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="IntentUI"]
+layout_mode = 2
+text = "10"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

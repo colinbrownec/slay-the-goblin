@@ -3,10 +3,11 @@ extends EnemyAction
 @export var damage := 7
 
 
-func perform_action() -> void:
-	if not enemy or not target:
-		return
+func can_perform_action() -> bool:
+	return enemy and target
 
+
+func perform_action() -> void:
 	# create animation tween to make enemy "attack" the target
 	var start := enemy.global_position
 	var end := target.global_position + Vector2.RIGHT * 32

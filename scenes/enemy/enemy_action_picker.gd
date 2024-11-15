@@ -31,7 +31,7 @@ func get_first_conditional_action() -> EnemyAction:
 		if not action or action.type != EnemyAction.Type.CONDITIONAL:
 			continue
 
-		if action.is_performable():
+		if action.can_perform_action():
 			return action
 
 	return null
@@ -44,7 +44,7 @@ func get_chance_based_action() -> EnemyAction:
 		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
 
-		if action.is_performable():
+		if action.can_perform_action():
 			total_weight += action.chance_weight
 
 	# roll based on weighted chance
@@ -53,10 +53,9 @@ func get_chance_based_action() -> EnemyAction:
 		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
 
-		if action.is_performable():
+		if action.can_perform_action():
 			roll -= action.chance_weight
-
-		if roll <= 0:
-			return action
+			if roll <= 0:
+				return action
 
 	return null

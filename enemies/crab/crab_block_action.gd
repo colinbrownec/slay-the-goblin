@@ -5,10 +5,11 @@ extends EnemyAction
 const ACTION_DELAY := 0.6
 
 
-func perform_action() -> void:
-	if not enemy:
-		return
+func can_perform_action() -> bool:
+	return enemy != null
 
+
+func perform_action() -> void:
 	var block_effect := BlockEffect.new()
 	block_effect.amount = block
 	block_effect.execute([enemy])

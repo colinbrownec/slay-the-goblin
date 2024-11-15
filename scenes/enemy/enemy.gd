@@ -9,10 +9,17 @@ const ARROW_OFFSET := 8
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 
+@onready var intent_ui: HBoxContainer = $IntentUI
+@onready var intent_icon: TextureRect = $IntentUI/Icon
+@onready var intent_label: Label = $IntentUI/Label
+
+
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction:
 	set(value):
 		current_action = value
+		if current_action:
+			_set_intent(current_action.intent)
 
 
 func set_enemy_stats(value: EnemyStats) -> void:
@@ -80,6 +87,18 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		queue_free()
 
+
+func _set_intent(intent: Intent) -> void:
+	if not intent:
+		intent_ui.hide()
+		return
+	
+	intent_icon.texture = intent.icon
+	intent_icon.visible = intent.icon != null
+	intent_label.text = intent.number
+	intent_label.visible = intent.number.length() >= 0
+	intent_ui.show()
+	
 
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.visible = true
