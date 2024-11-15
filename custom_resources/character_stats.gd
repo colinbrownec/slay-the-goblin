@@ -11,6 +11,13 @@ var discard: CardPile
 var draw_pile: CardPile
 
 
+func take_damage(damage: int) -> void:
+	var initial_health := health
+	super.take_damage(damage)
+	if health < initial_health:
+		Events.player_hit.emit()
+
+
 func set_mana(value: int) -> void:
 	mana = value
 	stats_changed.emit()

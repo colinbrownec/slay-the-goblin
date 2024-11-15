@@ -65,7 +65,7 @@ func update_enemy() -> void:
 		await ready
 
 	sprite_2d.texture = stats.art
-	arrow.position = Vector2.UP * (sprite_2d.get_rect().size.y / 2 + ARROW_OFFSET)
+	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
 	setup_ai()
 	update_stats()
 
@@ -82,23 +82,27 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		return
 
-	stats.take_damage(damage)
-
-	if stats.health <= 0:
-		queue_free()
+	var tween := create_tween()
+	Visuals.tween_damage_shake(tween, sprite_2d, damage)
+	tween.tween_callback(
+		func():
+			stats.take_damage(damage)
+			if stats.health <= 0:
+				queue_free()
+	)
 
 
 func _set_intent(intent: Intent) -> void:
 	if not intent:
 		intent_ui.hide()
 		return
-	
+
 	intent_icon.texture = intent.icon
 	intent_icon.visible = intent.icon != null
 	intent_label.text = intent.number
 	intent_label.visible = intent.number.length() >= 0
 	intent_ui.show()
-	
+
 
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.visible = true

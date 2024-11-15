@@ -25,8 +25,8 @@ theme = null
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -16)
-rotation = 3.14159
+position = Vector2(16, 0)
+rotation = -1.5708
 texture = ExtResource("4_ud4s8")
 
 [node name="IntentUI" type="HBoxContainer" parent="."]

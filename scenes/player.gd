@@ -34,8 +34,12 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		return
 
-	stats.take_damage(damage)
-
-	if stats.health <= 0:
-		Events.player_died.emit()
-		queue_free()
+	var tween := create_tween()
+	Visuals.tween_damage_shake(tween, sprite_2d, damage)
+	tween.tween_callback(
+		func():
+			stats.take_damage(damage)
+			if stats.health <= 0:
+				Events.player_died.emit()
+				queue_free()
+	)
