@@ -1,22 +1,34 @@
 extends Node
 
+@onready var music: Node = $Music
+@onready var sfx: Node = $SFX
 
-func play(audio: AudioStream, single: bool = false) -> void:
+
+func play_music(audio: AudioStream, single: bool = false) -> void:
 	if not audio:
 		return
 
 	if single:
-		stop()
+		stop_music()
 
-	print(get_children())
-
-	for player: AudioStreamPlayer in get_children():
+	for player: AudioStreamPlayer in music.get_children():
 		if not player.playing:
 			player.stream = audio
 			player.play()
 			break
 
 
-func stop() -> void:
-	for player: AudioStreamPlayer in get_children():
+func stop_music() -> void:
+	for player: AudioStreamPlayer in music.get_children():
 		player.stop()
+
+
+func play_sfx(audio: AudioStream) -> void:
+	if not audio:
+		return
+
+	for player: AudioStreamPlayer in sfx.get_children():
+		if not player.playing:
+			player.stream = audio
+			player.play()
+			break

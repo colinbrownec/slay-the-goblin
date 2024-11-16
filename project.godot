@@ -19,7 +19,7 @@ config/icon="res://icon.png"
 
 Events="*res://global/events.gd"
 Visuals="*res://global/visuals.gd"
-Sounds="*res://scenes/music_player.tscn"
+Sounds="*res://scenes/sounds.tscn"
 
 [display]
 
