@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RunInitialization" load_steps=2 format=3 uid="uid://bf4mcqpuurmef"]
+
+[ext_resource type="Script" path="res://custom_resources/run_initialization.gd" id="1_acm5a"]
+
+[resource]
+script = ExtResource("1_acm5a")
+type = 0

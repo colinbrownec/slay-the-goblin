@@ -12,7 +12,11 @@ enum Type {
 
 
 func _ready() -> void:
-	continue_button.pressed.connect(get_tree().quit)
+	continue_button.pressed.connect(
+		func():
+			get_tree().paused = false
+			Events.battle_won.emit()
+	)
 	restart_button.pressed.connect(
 		func():
 			get_tree().paused = false

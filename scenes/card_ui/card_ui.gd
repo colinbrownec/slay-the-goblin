@@ -13,7 +13,7 @@ const CARD_HOVER_STYLEBOX = preload("res://scenes/card_ui/card_hover_stylebox.tr
 @onready var panel: Panel = $Panel
 @onready var cost: Label = $Cost
 @onready var icon: TextureRect = $Icon
-@onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
+@onready var card_state_machine: CardStateMachine = $CardStateMachine
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var targets: Array[Node] = []
 

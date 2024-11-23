@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://blmd5pqrkywhq"]
+
+[ext_resource type="PackedScene" uid="uid://d12ogm7375bxc" path="res://scenes/map/map.tscn" id="1_p3yu6"]
+[ext_resource type="Script" path="res://scenes/run/run.gd" id="1_pbl1y"]
+[ext_resource type="Resource" uid="uid://bf4mcqpuurmef" path="res://scenes/run/run_initialization.tres" id="2_s3387"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_pbl1y")
+run_init = ExtResource("2_s3387")
+
+[node name="Map" parent="." instance=ExtResource("1_p3yu6")]
+
+[node name="CurrentView" type="Node" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="MapButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Map"
+
+[node name="BattleButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Battle"
+
+[node name="ShopButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Shop"
+
+[node name="TreasureButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Treasure"
+
+[node name="RewardsButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Rewards"
+
+[node name="CampfireButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Campfire"

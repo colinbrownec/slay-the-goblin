@@ -1,6 +1,12 @@
 class_name CharacterStats
 extends Stats
 
+@export_group("Visuals")
+@export var name: String
+@export var description: String
+@export var portrait: Texture
+
+@export_group("Gameplay Data")
 @export var starting_deck: CardPile
 @export var cards_per_turn: int
 @export var max_mana: int
@@ -32,7 +38,7 @@ func can_play_card(card: Card) -> bool:
 
 
 func create_instance() -> CharacterStats:
-	var instance := self.duplicate() as CharacterStats
+	var instance: CharacterStats = self.duplicate()
 	instance.health = max_health
 	instance.block = 0
 	instance.reset_mana()

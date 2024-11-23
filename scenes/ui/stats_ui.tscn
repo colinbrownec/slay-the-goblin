@@ -29,7 +29,7 @@ stretch_mode = 3
 [node name="BlockLabel" type="Label" parent="Block"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "999"
+text = "10"
 
 [node name="Health" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -43,4 +43,4 @@ stretch_mode = 3
 [node name="HealthLabel" type="Label" parent="Health"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "999"
+text = "10"

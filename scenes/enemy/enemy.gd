@@ -7,7 +7,7 @@ const ARROW_OFFSET := 8
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var arrow: Sprite2D = $Arrow
-@onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var stats_ui: StatsUI = $StatsUI
 
 @onready var intent_ui: HBoxContainer = $IntentUI
 @onready var intent_icon: TextureRect = $IntentUI/Icon
@@ -36,7 +36,7 @@ func setup_ai() -> void:
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
 
-	enemy_action_picker = stats.ai.instantiate() as EnemyActionPicker
+	enemy_action_picker = stats.ai.instantiate()
 	enemy_action_picker.enemy = self
 	add_child(enemy_action_picker)
 

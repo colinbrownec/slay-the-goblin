@@ -6,6 +6,9 @@
 
 [resource]
 script = ExtResource("1_0vhx8")
+name = "Warrior"
+description = "Slice and dice."
+portrait = ExtResource("1_xk0wg")
 starting_deck = ExtResource("2_3n6qr")
 cards_per_turn = 4
 max_mana = 3
